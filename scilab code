@@ -1,0 +1,39 @@
+// Step 1: Generate a continuous-time signal
+clf; // Clear the current figure
+t = ...; // Time vector
+f = ...; // Frequency
+x = ...; // Continuous-time signal
+// Plot the continuous-time signal
+subplot(3,1,1);
+plot(t, x);
+title('Continuous-time Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+legend('Continuous-time Signal with freq ... Hz');
+// Step 2: Sample the signal at different sampling rates
+fs1 = ...; // Sampling frequency
+ts1 = ...; // Sampling times
+xs1 = ...; // Sampled signal
+// Repeat for fs2, fs3
+// Plot the sampled signals
+subplot(3,1,2);
+plot(t, x, 'b'); // Original continuous-time signal
+plot2d(ts1, xs1, style=-4, rect=[0, -1.5, 1, 1.5]); // Sampled signal at fs1
+// Repeat for fs2, fs3
+title('Sampled Signals');
+xlabel('Time (s)');
+ylabel('Amplitude');
+legend('Continuous-time', 'Sampled at ... Hz', 'Sampled at ... Hz', 'Sampled at ... Hz');
+// Step 3: Reconstruct the signal from samples using interpolation
+xr1 = interp1(ts1, xs1, t, 'linear'); // Reconstructed signal from fs1 samples
+// Repeat for xr2, xr3
+// Plot the reconstructed signals
+subplot(3,1,3);
+plot(t, x, 'b'); // Original continuous-time signal
+plot2d(t, xr1, style=2, rect=[0, -1.5, 1, 1.5]); // Reconstructed signal from fs1 samples
+// Repeat for xr2, xr3
+title('Reconstructed Signals');
+xlabel('Time (s)');
+ylabel('Amplitude');
+legend('Continuous-time', 'Reconstructed from ... Hz samples', 'Reconstructed from ... Hz samples', 'Reconstructed 
+from ... Hz samples');
